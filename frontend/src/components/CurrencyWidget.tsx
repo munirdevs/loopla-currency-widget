@@ -144,8 +144,8 @@ export default function CurrencyWidget() {
 
           {/* Conversion Calculator */}
           {rates.length > 0 && (
-            <div className="mb-5 p-4 bg-gradient-to-br from-primary-50 to-blue-50 rounded-lg border border-primary-200">
-              <div className="flex items-center justify-between mb-3">
+            <div className="mb-5 p-3 sm:p-4 bg-gradient-to-br from-primary-50 to-blue-50 rounded-lg border border-primary-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0 mb-3">
                 <label className="text-sm font-semibold text-gray-700">
                   Currency Converter
                 </label>
@@ -153,7 +153,7 @@ export default function CurrencyWidget() {
                   onClick={() => setIsReverse(!isReverse)}
                   className="px-3 py-1 text-xs font-medium text-primary-700 bg-white 
                            rounded-md hover:bg-primary-100 transition-colors border border-primary-300
-                           flex items-center gap-1.5"
+                           flex items-center justify-center gap-1.5 w-full sm:w-auto"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -162,7 +162,7 @@ export default function CurrencyWidget() {
                 </button>
               </div>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* From */}
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">
@@ -174,16 +174,17 @@ export default function CurrencyWidget() {
                       value={amount}
                       onChange={handleAmountChange}
                       placeholder="0.00"
-                      className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg 
-                               focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                      className="flex-1 px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg 
+                               focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+                               min-w-0"
                     />
                     {isReverse && (
                       <select
                         value={selectedCurrency}
                         onChange={(e) => setSelectedCurrency(e.target.value)}
-                        className="px-3 py-2 text-sm border border-gray-300 rounded-lg 
+                        className="px-2 sm:px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg 
                                  focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
-                                 bg-white font-semibold"
+                                 bg-white font-semibold w-20 sm:w-auto"
                       >
                         {rates.map((rate) => (
                           <option key={rate.currency} value={rate.currency}>
@@ -193,7 +194,7 @@ export default function CurrencyWidget() {
                       </select>
                     )}
                     {!isReverse && (
-                      <div className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg font-semibold">
+                      <div className="px-2 sm:px-3 py-2 text-sm sm:text-base bg-white border border-gray-300 rounded-lg font-semibold w-16 sm:w-auto text-center">
                         GBP
                       </div>
                     )}
@@ -212,10 +213,10 @@ export default function CurrencyWidget() {
                           type="text"
                           value={calculateConversion(getSelectedRate())}
                           readOnly
-                          className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg 
-                                   bg-gray-50 font-semibold text-gray-700"
+                          className="flex-1 px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg 
+                                   bg-gray-50 font-semibold text-gray-700 min-w-0"
                         />
-                        <div className="px-3 py-2 text-sm bg-white border border-gray-300 rounded-lg font-semibold">
+                        <div className="px-2 sm:px-3 py-2 text-sm sm:text-base bg-white border border-gray-300 rounded-lg font-semibold w-16 sm:w-auto text-center">
                           GBP
                         </div>
                       </>
@@ -224,9 +225,9 @@ export default function CurrencyWidget() {
                         <select
                           value={selectedCurrency}
                           onChange={(e) => setSelectedCurrency(e.target.value)}
-                          className="px-3 py-2 text-sm border border-gray-300 rounded-lg 
+                          className="px-2 sm:px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg 
                                    focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
-                                   bg-white font-semibold"
+                                   bg-white font-semibold w-20 sm:w-auto"
                         >
                           {rates.map((rate) => (
                             <option key={rate.currency} value={rate.currency}>
@@ -238,8 +239,8 @@ export default function CurrencyWidget() {
                           type="text"
                           value={calculateConversion(getSelectedRate())}
                           readOnly
-                          className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg 
-                                   bg-gray-50 font-semibold text-gray-700"
+                          className="flex-1 px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg 
+                                   bg-gray-50 font-semibold text-gray-700 min-w-0"
                         />
                       </>
                     )}
