@@ -145,4 +145,4 @@ frontend/
 
 ## Notes
 
-Built for the Loopla technical assessment. The app demonstrates TypeScript full-stack development with clean architecture, proper caching, and modern React patterns.
+The app demonstrates TypeScript full-stack development with clean architecture, proper caching, and modern React patterns.
